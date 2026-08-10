@@ -1,4 +1,5 @@
-ast
-scikit-learn
-flask
-fastapi
+PySide6>=6.0.0
+requests>=2.25.1
+openai>=1.0.0
+qtawesome>=1.0.0
+pyinstaller>=6.0.0
