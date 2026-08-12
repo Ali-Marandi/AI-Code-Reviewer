@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+      body { margin: 0; }
+      .slide-container { 
+        width: 1280px; 
+        min-height: 720px; 
+        background: #E9ECEF; 
+        font-family: 'Segoe UI', sans-serif;
+        position: relative;
+        overflow: hidden;
+      }
+      .header-block {
+        padding-top: 60px;
+        padding-left: 60px;
+      }
+      h2 {
+        font-size: 64px;
+        font-weight: 800;
+        color: #212529;
+        text-transform: uppercase;
+        margin-bottom: 30px;
+      }
+      .grid-layout {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 30px;
+        padding-left: 60px;
+        padding-right: 60px;
+      }
+      .security-card {
+        background: #FFFFFF;
+        padding: 30px;
+        clip-path: polygon(0 0, 100% 0, 100% 90%, 90% 100%, 0 100%);
+        border-top: 8px solid #20C997;
+        min-height: 350px;
+      }
+      .security-card.dark {
+        background: #212529;
+        color: white;
+        border-top-color: #FFC107;
+      }
+      .card-icon {
+        font-size: 48px;
+        color: #20C997;
+        margin-bottom: 20px;
+      }
+      .dark .card-icon { color: #FFC107; }
+      h3 {
+        font-size: 24px;
+        font-weight: 800;
+        margin-bottom: 15px;
+      }
+      .card-text {
+        font-size: 16px;
+        line-height: 1.5;
+        color: #495057;
+      }
+      .dark .card-text { color: #d4d4d4; }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="header-block">
+            <h2>Comprehensive Security<br>Architecture</h2>
+        </div>
+        <div class="grid-layout">
+            <div class="security-card">
+                <div class="card-icon"><i class="fas fa-cloud-slash"></i></div>
+                <h3>Zero Cloud Exposure</h3>
+                <div class="card-text">Proprietary source code remains local. Addresses the primary security concerns of regulated enterprise environments.</div>
+            </div>
+            <div class="security-card dark">
+                <div class="card-icon"><i class="fas fa-shield-alt"></i></div>
+                <h3>Hybrid Security Engine</h3>
+                <div class="card-text">Merging local RegEx SAST pre-screening with deep semantic LLM analysis for high-accuracy bug detection.</div>
+            </div>
+            <div class="security-card">
+                <div class="card-icon"><i class="fas fa-lock"></i></div>
+                <h3>E2EE Data Protection</h3>
+                <div class="card-text">Military-grade AES-256-GCM encryption and PBKDF2 key derivation ensuring complete data isolation.</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

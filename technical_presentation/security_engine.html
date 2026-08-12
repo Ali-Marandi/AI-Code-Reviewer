@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+      body { margin: 0; }
+      .slide-container { 
+        width: 1280px; 
+        min-height: 720px; 
+        background: #E9ECEF; 
+        font-family: 'Segoe UI', sans-serif;
+        position: relative;
+        overflow: hidden;
+      }
+      .header-block {
+        padding-top: 60px;
+        padding-left: 60px;
+      }
+      h2 {
+        font-size: 64px;
+        font-weight: 800;
+        color: #212529;
+        text-transform: uppercase;
+        margin-bottom: 30px;
+      }
+      .engine-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+        padding-left: 60px;
+        padding-right: 60px;
+      }
+      .engine-card {
+        background: #FFFFFF;
+        padding: 40px;
+        clip-path: polygon(0 0, 100% 0, 100% 90%, 90% 100%, 0 100%);
+        border-top: 8px solid #20C997;
+      }
+      .engine-card.dark {
+        background: #212529;
+        color: white;
+        border-top-color: #FFC107;
+      }
+      .card-title {
+        font-size: 32px;
+        font-weight: 800;
+        margin-bottom: 20px;
+        display: flex;
+        align-items: center;
+        gap: 15px;
+      }
+      .card-content {
+        font-size: 18px;
+        line-height: 1.6;
+      }
+      .card-content ul {
+        list-style: none;
+        padding: 0;
+        margin-top: 20px;
+      }
+      .card-content li {
+        margin-bottom: 15px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .card-content li i { color: #20C997; }
+      .dark li i { color: #FFC107; }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="header-block">
+            <h2>Hybrid Security<br>Engine</h2>
+        </div>
+        <div class="engine-grid">
+            <div class="engine-card">
+                <div class="card-title">
+                    <i class="fas fa-search-code"></i>
+                    Local SAST
+                </div>
+                <div class="card-content">
+                    Instant pre-screening using local RegEx and AST parsing patterns.
+                    <ul>
+                        <li><i class="fas fa-check"></i> Hardcoded Secret Detection</li>
+                        <li><i class="fas fa-check"></i> PII Leakage Prevention</li>
+                        <li><i class="fas fa-check"></i> 100% Local Execution</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="engine-card dark">
+                <div class="card-title">
+                    <i class="fas fa-brain"></i>
+                    Semantic LLM
+                </div>
+                <div class="card-content">
+                    Deep logic analysis via secure enterprise AI models (GPT-4o/Claude).
+                    <ul>
+                        <li><i class="fas fa-bolt"></i> Complex Bug Reasoning</li>
+                        <li><i class="fas fa-bolt"></i> Architectural Review</li>
+                        <li><i class="fas fa-bolt"></i> 60% False Positive Reduction</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

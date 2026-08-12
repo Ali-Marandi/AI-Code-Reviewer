@@ -1,0 +1,67 @@
+{
+  "project_info": {
+    "title": "High-Performance Desktop Core",
+    "created": 1786542997.091,
+    "last_updated": 1786543084.502,
+    "total_slides": 5
+  },
+  "slides": [
+    {
+      "id": "core_perf",
+      "state": "edited",
+      "pageNum": 1
+    },
+    {
+      "id": "security_engine",
+      "state": "edited",
+      "pageNum": 2
+    },
+    {
+      "id": "data_protection",
+      "state": "edited",
+      "pageNum": 3
+    },
+    {
+      "id": "cicd_integrity",
+      "state": "edited",
+      "pageNum": 4
+    },
+    {
+      "id": "plugin_system",
+      "state": "edited",
+      "pageNum": 5
+    }
+  ],
+  "outline": [
+    {
+      "id": "core_perf",
+      "title": "High-Performance Desktop Core",
+      "summary": "Details on PySide6 architecture and asynchronous multi-threading for responsive UI.",
+      "image_plan": "Use a suitable image if needed"
+    },
+    {
+      "id": "security_engine",
+      "title": "Hybrid Security Engine",
+      "summary": "Analysis of local SAST pre-screening and semantic LLM integration for bug detection.",
+      "image_plan": "Use a suitable image if needed"
+    },
+    {
+      "id": "data_protection",
+      "title": "E2EE Data Protection",
+      "summary": "Technical view of local encryption standards and secure credential management.",
+      "image_plan": "Use a suitable image if needed"
+    },
+    {
+      "id": "cicd_integrity",
+      "title": "Automated Pipeline Integrity",
+      "summary": "Workflow for automated code signing, MSI generation, and supply chain security.",
+      "image_plan": "Use a suitable image if needed"
+    },
+    {
+      "id": "plugin_system",
+      "title": "Extensible Plugin Architecture",
+      "summary": "Architecture of the modular plugin system and secure AST-based validation.",
+      "image_plan": "Use a suitable image if needed"
+    }
+  ]
+}

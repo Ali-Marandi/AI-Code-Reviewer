@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+      .slide-container { 
+        width: 1280px; 
+        min-height: 720px; 
+        background: #E9ECEF; 
+        font-family: 'Segoe UI', sans-serif;
+        position: relative;
+        overflow: hidden;
+      }
+      .header-block {
+        padding-top: 60px; /* keep as required */
+        padding-left: 60px;
+        width: 1000px;
+      }
+      h2 {
+        font-size: 64px;
+        font-weight: 800;
+        color: #212529;
+        text-transform: uppercase;
+        margin-bottom: 12px; /* kept small */
+      }
+      .main-grid {
+        display: grid;
+        grid-template-columns: 1.2fr 0.8fr;
+        gap: 20px; /* reduced gap horizontally */
+        padding-top: 8px; /* shrink vertical padding to reduce height */
+        padding-left: 60px;
+        padding-right: 60px;
+      }
+      .feature-list {
+        display: flex;
+        flex-direction: column;
+        gap: 8px; /* reduced gap between items */
+      }
+      .feature-item {
+        background: #FFFFFF;
+        padding: 8px 16px; /* reduced vertical padding */
+        clip-path: polygon(0 0, 95% 0, 100% 15%, 100% 100%, 0 100%);
+        border-left: 10px solid #20C997;
+      }
+      .feature-title {
+        font-size: 24px;
+        font-weight: 800;
+        color: #212529;
+        margin-bottom: 6px;
+      }
+      .feature-desc {
+        font-size: 16px;
+        color: #495057;
+        line-height: 1.5;
+      }
+      .visual-block {
+        background: #212529;
+        color: white;
+        padding-top: 12px; /* reduced */
+        padding-left: 30px;
+        padding-right: 30px;
+        clip-path: polygon(15% 0, 100% 0, 100% 100%, 0 100%, 0 15%);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        min-height: 300px; /* reduced from 340px */
+      }
+      .arch-point {
+        margin-bottom: 10px; /* reduced */
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+      }
+      .arch-point i {
+        font-size: 24px;
+        color: #FFC107;
+        margin-top: 4px;
+      }
+      .arch-text b { color: #20C997; font-size: 18px; display: block; margin-bottom: 6px; }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="header-block">
+            <h2>Next-Gen Code Audit<br>Platform</h2>
+        </div>
+        <div class="main-grid">
+            <div class="feature-list">
+                <div class="feature-item">
+                    <div class="feature-title">Desktop-First Architecture</div>
+                    <div class="feature-desc">Built on PySide6 for maximum performance. Keeps proprietary source code local and private, avoiding cloud-based security risks.</div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-title">Local SAST & Deep AI Analysis</div>
+                    <div class="feature-desc">Combines RegEx scans with semantic reasoning from GPT-4o and Claude 3.5 for high-accuracy bug detection.</div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-title">One-Click Remediation</div>
+                    <div class="feature-desc">Instantly apply AI-suggested patches to your local codebase and sync comments directly to GitHub PRs with a single click.</div>
+                </div>
+            </div>
+            <div class="visual-block">
+                <div class="arch-point">
+                    <i class="fas fa-microchip"></i>
+                    <div class="arch-text">
+                        <b>High-Performance Engine</b>
+                        Multi-threaded processing ensures UI responsiveness during heavy code audits.
+                    </div>
+                </div>
+                <div class="arch-point">
+                    <i class="fas fa-lock"></i>
+                    <div class="arch-text">
+                        <b>Enterprise Compliance</b>
+                        E2EE local storage and audit trails built for regulated industry standards.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

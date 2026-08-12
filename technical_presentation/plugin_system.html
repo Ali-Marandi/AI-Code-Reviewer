@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+      body { margin: 0; }
+      .slide-container { 
+        width: 1280px; 
+        min-height: 720px; 
+        background: #E9ECEF; 
+        font-family: 'Segoe UI', sans-serif;
+        position: relative;
+        overflow: hidden;
+      }
+      .header-block {
+        padding-top: 60px;
+        padding-left: 60px;
+        width: 1100px;
+      }
+      h2 {
+        font-size: 64px;
+        font-weight: 800;
+        color: #212529;
+        text-transform: uppercase;
+        margin-bottom: 12px; /* reduced spacing under title */
+      }
+      .content-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 40px 40px;
+        row-gap: 24px; /* reduced vertical gaps */
+        padding-top: 10px; /* reduced to save height */
+        padding-left: 60px;
+        padding-right: 60px;
+      }
+      .plugin-card {
+        background: #FFFFFF;
+        padding: 18px; /* reduced inner padding */
+        clip-path: polygon(0 0, 100% 0, 100% 85%, 85% 100%, 0 100%);
+        border-top: 8px solid #20C997;
+        min-height: 380px;
+      }
+      .plugin-card.dark {
+        background: #212529;
+        color: white;
+        border-top-color: #FFC107;
+      }
+      .card-header {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        margin-bottom: 12px; /* reduced spacing */
+      }
+      .card-header i {
+        font-size: 32px;
+        color: #20C997;
+      }
+      .dark .card-header i {
+        color: #FFC107;
+      }
+      h3 {
+        font-size: 28px;
+        font-weight: 800;
+        margin: 0;
+      }
+      .feature-list {
+        list-style: none;
+        padding: 0;
+        margin-top: 12px;
+      }
+      .feature-list li {
+        margin-bottom: 8px; /* reduced between items */
+        display: flex;
+        align-items: flex-start;
+        gap: 12px;
+        font-size: 18px;
+        line-height: 1.4;
+      }
+      .feature-list li i {
+        margin-top: 3px;
+        font-size: 16px;
+        color: #20C997;
+      }
+      .dark .feature-list li i {
+        color: #FFC107;
+      }
+      .geometric-bg {
+        position: absolute;
+        bottom: -100px;
+        right: -100px;
+        width: 400px;
+        height: 400px;
+        background: #20C997;
+        border-radius: 50%;
+        opacity: 0.1;
+      }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="geometric-bg"></div>
+        <div class="header-block">
+            <h2>Extensible Plugin<br>Architecture</h2>
+        </div>
+        <div class="content-grid">
+            <div class="plugin-card">
+                <div class="card-header">
+                    <i class="fas fa-puzzle-piece"></i>
+                    <h3>Modular Core</h3>
+                </div>
+                <ul class="feature-list">
+                    <li><i class="fas fa-check-circle"></i> <b>BasePlugin Interface:</b> Standardized API for custom security rules and linting policies.</li>
+                    <li><i class="fas fa-check-circle"></i> <b>Dynamic Loading:</b> Hot-reload plugins from local directories without recompiling the core.</li>
+                    <li><i class="fas fa-check-circle"></i> <b>Team Customization:</b> Enables engineering teams to integrate internal compliance frameworks.</li>
+                </ul>
+            </div>
+            <div class="plugin-card dark">
+                <div class="card-header">
+                    <i class="fas fa-user-shield"></i>
+                    <h3>Secure Validation</h3>
+                </div>
+                <ul class="feature-list">
+                    <li><i class="fas fa-shield-alt"></i> <b>AST Inspection:</b> Pre-runtime analysis of plugin source code to detect malicious patterns.</li>
+                    <li><i class="fas fa-shield-alt"></i> <b>Sandboxed Execution:</b> Restricted execution environment to prevent unauthorized OS access.</li>
+                    <li><i class="fas fa-shield-alt"></i> <b>Supply Chain Trust:</b> Ensures only validated and safe extensions run on developer machines.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

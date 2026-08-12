@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+      body { margin: 0; }
+      .slide-container { 
+        width: 1280px; 
+        min-height: 720px; 
+        background: #E9ECEF; 
+        font-family: 'Segoe UI', sans-serif;
+        position: relative;
+        overflow: hidden;
+      }
+      .diagonal-bg {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 50%;
+        height: 100%;
+        background: #212529;
+        clip-path: polygon(20% 0, 100% 0, 100% 100%, 0 100%);
+        z-index: 1;
+      }
+      .content {
+        position: relative;
+        z-index: 10;
+        padding-top: 100px;
+        padding-left: 60px;
+        display: flex;
+        justify-content: space-between;
+      }
+      .left-col {
+        width: 550px;
+      }
+      .right-col {
+        width: 450px;
+        padding-top: 80px;
+        padding-right: 60px;
+        color: white;
+      }
+      h1 {
+        font-size: 72px;
+        font-weight: 800;
+        color: #212529;
+        text-transform: uppercase;
+        line-height: 0.9;
+        margin-bottom: 40px;
+      }
+      .tech-block {
+        background: #FFFFFF;
+        padding: 30px;
+        border-left: 10px solid #20C997;
+        clip-path: polygon(0 0, 100% 0, 100% 85%, 85% 100%, 0 100%);
+        margin-bottom: 30px;
+      }
+      .tech-point {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        margin-bottom: 25px;
+        font-size: 20px;
+        font-weight: 600;
+      }
+      .tech-point i { color: #FFC107; font-size: 24px; }
+      .highlight { color: #20C997; }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="diagonal-bg"></div>
+        <div class="content">
+            <div class="left-col">
+                <h1>High-Perf<br>Desktop<br><span class="highlight">Core</span></h1>
+                <div class="tech-block">
+                    <p style="font-size: 18px; color: #495057; line-height: 1.5;">Native OS performance without browser memory overhead, optimized for enterprise workstations.</p>
+                </div>
+            </div>
+            <div class="right-col">
+                <div class="tech-point">
+                    <i class="fas fa-microchip"></i>
+                    <span>PySide6 (Qt) Architecture</span>
+                </div>
+                <div class="tech-point">
+                    <i class="fas fa-project-diagram"></i>
+                    <span>Asynchronous QThreads</span>
+                </div>
+                <div class="tech-point">
+                    <i class="fas fa-bolt"></i>
+                    <span>Zero-Freeze UI Engine</span>
+                </div>
+                <div class="tech-point">
+                    <i class="fas fa-memory"></i>
+                    <span>Optimized RAM Footprint</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

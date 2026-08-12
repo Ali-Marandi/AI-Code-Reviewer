@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+      body { margin: 0; }
+      .slide-container { 
+        width: 1280px; 
+        min-height: 720px; 
+        background: #E9ECEF; 
+        font-family: 'Segoe UI', sans-serif;
+        position: relative;
+        overflow: hidden;
+      }
+      .header-block {
+        padding-top: 60px;
+        padding-left: 60px;
+        width: 1100px;
+      }
+      h2 {
+        font-size: 64px;
+        font-weight: 800;
+        color: #212529;
+        text-transform: uppercase;
+        margin-bottom: 20px;
+      }
+      .pipeline-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 20px;
+        padding-top: 20px;
+        padding-left: 60px;
+        padding-right: 60px;
+      }
+      .pipeline-card {
+        background: #FFFFFF;
+        padding-top: 20px;
+        padding-left: 20px;
+        padding-right: 20px;
+        min-height: 330px;
+        clip-path: polygon(0 0, 100% 0, 100% 90%, 90% 100%, 0 100%);
+        border-top: 6px solid #20C997;
+      }
+      .pipeline-card.dark {
+        background: #212529;
+        color: white;
+        border-top-color: #FFC107;
+      }
+      .icon-box {
+        width: 60px;
+        height: 60px;
+        background: #E9ECEF;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 16px;
+      }
+      .dark .icon-box {
+        background: #333;
+      }
+      .icon-box i {
+        color: #20C997;
+        font-size: 28px;
+      }
+      .dark .icon-box i {
+        color: #FFC107;
+      }
+      h3 {
+        font-size: 24px;
+        font-weight: 800;
+        margin-bottom: 12px;
+        line-height: 1.2;
+      }
+      .card-text {
+        font-size: 16px;
+        color: #495057;
+        line-height: 1.6;
+      }
+      .dark .card-text {
+        color: #d4d4d4;
+      }
+      .card-text b {
+        color: #20C997;
+      }
+      .dark .card-text b {
+        color: #FFC107;
+      }
+      .bg-shape {
+        position: absolute;
+        bottom: -50px;
+        left: -50px;
+        width: 300px;
+        height: 300px;
+        background: #FFC107;
+        clip-path: polygon(0 0, 100% 100%, 0 100%);
+        opacity: 0.1;
+      }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="bg-shape"></div>
+        <div class="header-block">
+            <h2>Automated Pipeline<br>Integrity</h2>
+        </div>
+        <div class="pipeline-grid">
+            <div class="pipeline-card">
+                <div class="icon-box">
+                    <i class="fas fa-box-open"></i>
+                </div>
+                <h3>Automated Compilation</h3>
+                <div class="card-text">
+                    Fully automated <b>GitHub Actions</b> workflow compiles standalone binaries from source. Ensures consistent, reproducible builds for every release tag.
+                </div>
+            </div>
+            <div class="pipeline-card dark">
+                <div class="icon-box">
+                    <i class="fas fa-file-signature"></i>
+                </div>
+                <h3>Cryptographic Signing</h3>
+                <div class="card-text">
+                    Integrates <b>signtool</b> with timestamping to sign EXE and MSI files. Bypasses Windows SmartScreen and guarantees software authenticity.
+                </div>
+            </div>
+            <div class="pipeline-card">
+                <div class="icon-box">
+                    <i class="fas fa-shield-virus"></i>
+                </div>
+                <h3>Supply Chain Security</h3>
+                <div class="card-text">
+                    End-to-end integrity from repository to deployment. <b>MSI generation</b> with WiX Toolset provides secure, silent installation for enterprise IT.
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

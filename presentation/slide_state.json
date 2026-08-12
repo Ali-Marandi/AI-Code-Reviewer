@@ -1,0 +1,67 @@
+{
+  "project_info": {
+    "title": "Transforming Enterprise Code Quality",
+    "created": 1786541926.663,
+    "last_updated": 1786542191.697,
+    "total_slides": 5
+  },
+  "slides": [
+    {
+      "id": "intro",
+      "state": "edited",
+      "pageNum": 1
+    },
+    {
+      "id": "problem",
+      "state": "edited",
+      "pageNum": 2
+    },
+    {
+      "id": "solution",
+      "state": "edited",
+      "pageNum": 3
+    },
+    {
+      "id": "tech_licensing",
+      "state": "edited",
+      "pageNum": 4
+    },
+    {
+      "id": "roadmap",
+      "state": "edited",
+      "pageNum": 5
+    }
+  ],
+  "outline": [
+    {
+      "id": "intro",
+      "title": "Transforming Enterprise Code Quality",
+      "summary": "Introduction to AI-Code-Reviewer Enterprise and its value proposition in the automated code audit market.",
+      "image_plan": "Use a suitable image if needed"
+    },
+    {
+      "id": "problem",
+      "title": "The Enterprise Software Crisis",
+      "summary": "Analysis of security risks and engineering costs associated with manual code reviews and technical debt.",
+      "image_plan": "Use a suitable image if needed"
+    },
+    {
+      "id": "solution",
+      "title": "Next-Gen Code Audit Platform",
+      "summary": "Overview of the desktop-first architecture, local SAST, and deep AI analysis capabilities.",
+      "image_plan": "Use a suitable image if needed"
+    },
+    {
+      "id": "tech_licensing",
+      "title": "Secure Architecture & Licensing",
+      "summary": "Detailed view of node-locked licensing, CI/CD automation, and enterprise security features.",
+      "image_plan": "Use a suitable image if needed"
+    },
+    {
+      "id": "roadmap",
+      "title": "Market Validation & Roadmap",
+      "summary": "Validation of the current deployment and the strategic vision for future growth and monetization.",
+      "image_plan": "Use a suitable image if needed"
+    }
+  ]
+}

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+      body { margin: 0; }
+      .slide-container { 
+        width: 1280px; 
+        min-height: 720px; 
+        background: #E9ECEF; 
+        font-family: 'Segoe UI', sans-serif;
+        position: relative;
+        overflow: hidden;
+      }
+      .header-block {
+        padding-top: 60px;
+        padding-left: 60px;
+      }
+      h2 {
+        font-size: 64px;
+        font-weight: 800;
+        color: #212529;
+        text-transform: uppercase;
+        margin-bottom: 20px;
+      }
+      .content-split {
+        display: flex;
+        padding-left: 60px;
+        padding-right: 60px;
+        gap: 40px;
+        padding-top: 20px;
+      }
+      .ops-block {
+        flex: 1;
+        background: #212529;
+        color: white;
+        padding: 40px;
+        clip-path: polygon(15% 0, 100% 0, 100% 100%, 0 100%, 0 15%);
+        border-top: 8px solid #FFC107;
+      }
+      .onboarding-block {
+        flex: 1;
+        background: #FFFFFF;
+        padding: 40px;
+        clip-path: polygon(0 0, 85% 0, 100% 15%, 100% 100%, 0 100%);
+        border-top: 8px solid #20C997;
+      }
+      .ops-point {
+        display: flex;
+        align-items: flex-start;
+        gap: 15px;
+        margin-bottom: 30px;
+      }
+      .ops-point i { font-size: 24px; color: #FFC107; margin-top: 5px; }
+      .onboarding-block i { font-size: 24px; color: #20C997; margin-top: 5px; }
+      .point-title { font-size: 22px; font-weight: 800; margin-bottom: 8px; display: block; }
+      .point-desc { font-size: 16px; line-height: 1.4; opacity: 0.9; }
+      .onboarding-block .point-desc { color: #495057; opacity: 1; }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="header-block">
+            <h2>Automated Operations<br>& Efficiency</h2>
+        </div>
+        <div class="content-split">
+            <div class="ops-block">
+                <div class="ops-point">
+                    <i class="fas fa-cogs"></i>
+                    <div>
+                        <span class="point-title">Automated Supply Chain</span>
+                        <span class="point-desc">Full CI/CD via GitHub Actions for standalone compilation and MSI installer generation.</span>
+                    </div>
+                </div>
+                <div class="ops-point">
+                    <i class="fas fa-file-signature"></i>
+                    <div>
+                        <span class="point-title">Cryptographic Integrity</span>
+                        <span class="point-desc">Digital signing and timestamping to bypass Windows SmartScreen for seamless IT deployment.</span>
+                    </div>
+                </div>
+            </div>
+            <div class="onboarding-block">
+                <div class="ops-point">
+                    <i class="fas fa-user-check"></i>
+                    <div>
+                        <span class="point-title">Automated Onboarding</span>
+                        <span class="point-desc">Webhook-driven workflow reduces customer time-to-value to under 24 hours.</span>
+                    </div>
+                </div>
+                <div class="ops-point">
+                    <i class="fas fa-rocket"></i>
+                    <div>
+                        <span class="point-title">Scalable IT Deployment</span>
+                        <span class="point-desc">Silent MSI installation support for mass deployment across thousands of corporate workstations.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

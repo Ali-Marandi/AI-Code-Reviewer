@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+      body { margin: 0; }
+      .slide-container { 
+        width: 1280px; 
+        min-height: 720px; 
+        background: #E9ECEF; 
+        font-family: 'Segoe UI', sans-serif;
+        position: relative;
+        overflow: hidden;
+      }
+      .header-block {
+        padding-top: 60px;
+        padding-left: 60px;
+        width: 1100px;
+      }
+      h2 {
+        font-size: 64px;
+        font-weight: 800;
+        color: #212529;
+        text-transform: uppercase;
+        margin-bottom: 20px;
+      }
+      .modular-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 30px;
+        padding-top: 30px;
+        padding-left: 60px;
+        padding-right: 60px;
+      }
+      .module-card {
+        background: #FFFFFF;
+        padding-top: 30px;
+        padding-left: 25px;
+        padding-right: 25px;
+        min-height: 370px; /* reduced from 400 to fit under 720px total */
+        clip-path: polygon(0 0, 100% 0, 100% 90%, 90% 100%, 0 100%);
+        border-top: 6px solid #FFC107;
+      }
+      .icon-circle {
+        width: 60px;
+        height: 60px;
+        background: #20C997;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 20px;
+      }
+      .icon-circle i {
+        color: white;
+        font-size: 28px;
+      }
+      h3 {
+        font-size: 24px;
+        font-weight: 800;
+        color: #212529;
+        margin-bottom: 15px;
+        line-height: 1.2;
+      }
+      .module-content {
+        font-size: 16px;
+        color: #495057;
+        line-height: 1.6;
+      }
+      .module-content b {
+        color: #20C997;
+      }
+      .bg-accent {
+        position: absolute;
+        bottom: -50px;
+        right: -50px;
+        width: 300px;
+        height: 300px;
+        background: #20C997;
+        clip-path: polygon(100% 0, 0 100%, 100% 100%);
+        opacity: 0.1;
+      }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="bg-accent"></div>
+        <div class="header-block">
+            <h2>Secure Architecture<br>& Licensing</h2>
+        </div>
+        <div class="modular-grid">
+            <div class="module-card">
+                <div class="icon-circle">
+                    <i class="fas fa-key"></i>
+                </div>
+                <h3>Node-Locked Licensing</h3>
+                <div class="module-content">
+                    Advanced <b>hardware fingerprinting</b> prevents unauthorized sharing across corporate seats. Securely binds licenses to specific engineering workstations.
+                </div>
+            </div>
+            <div class="module-card">
+                <div class="icon-circle">
+                    <i class="fas fa-cogs"></i>
+                </div>
+                <h3>CI/CD Automation</h3>
+                <div class="module-content">
+                    Fully automated <b>GitHub Actions</b> pipeline for secure code signing and MSI installer generation. Ensures integrity and trust for enterprise deployment.
+                </div>
+            </div>
+            <div class="module-card">
+                <div class="icon-circle">
+                    <i class="fas fa-user-check"></i>
+                </div>
+                <h3>SSO & Telemetry</h3>
+                <div class="module-content">
+                    Seamless integration with <b>Keycloak & Azure AD</b>. Secure telemetry monitoring via Sentry for real-time stability and performance tracking.
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+      .slide-container { 
+        width: 1280px; 
+        min-height: 720px; 
+        background: #E9ECEF; 
+        font-family: 'Segoe UI', sans-serif;
+        position: relative;
+        overflow: hidden;
+      }
+      .header-block {
+        padding-top: 60px;
+        padding-left: 60px;
+        width: 1000px;
+      }
+      h2 {
+        font-size: 64px;
+        font-weight: 800;
+        color: #212529;
+        text-transform: uppercase;
+        margin-bottom: 20px;
+      }
+      .grid-layout {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+        padding-top: 40px;
+        padding-left: 60px;
+        padding-right: 60px;
+      }
+      .stat-box {
+        background: #FFFFFF;
+        padding-top: 30px;
+        padding-left: 30px;
+        padding-right: 30px;
+        clip-path: polygon(0 0, 100% 0, 100% 85%, 85% 100%, 0 100%);
+        border-top: 8px solid #20C997;
+      }
+      .stat-value {
+        font-size: 48px;
+        font-weight: 800;
+        color: #20C997;
+        margin-bottom: 10px;
+      }
+      .stat-label {
+        font-size: 20px;
+        color: #495057;
+        font-weight: 600;
+        margin-bottom: 20px;
+      }
+      .chart-container {
+        height: 250px;
+        margin-top: 20px;
+      }
+      .bg-geometric {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 300px;
+        height: 720px;
+        background: #FFC107;
+        clip-path: polygon(100% 0, 0 0, 100% 100%);
+        opacity: 0.1;
+      }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="bg-geometric"></div>
+        <div class="header-block">
+            <h2>The Enterprise<br>Software Crisis</h2>
+        </div>
+        <div class="grid-layout">
+            <div class="stat-box">
+                <div class="stat-value">30%</div>
+                <div class="stat-label">Engineering Bandwidth Wasted</div>
+                <p style="color:#495057; line-height:1.4;">Manual code reviews are slow and bottleneck critical product releases, consuming nearly a third of total development time.</p>
+                <div class="chart-container">
+                    <canvas id="bandwidthChart"></canvas>
+                </div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-value">$Billions</div>
+                <div class="stat-label">Annual Security Loss</div>
+                <p style="color:#495057; line-height:1.4;">Undetected vulnerabilities and hardcoded secrets lead to massive financial and reputational damage for organizations.</p>
+                <div class="chart-container">
+                    <canvas id="lossChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        const ctx1 = document.getElementById('bandwidthChart').getContext('2d');
+        new Chart(ctx1, {
+            type: 'bar',
+            data: {
+                labels: ['QA', 'Manual Review', 'Coding'],
+                datasets: [{
+                    label: 'Time Allocation (%)',
+                    data: [20, 30, 50],
+                    backgroundColor: ['#495057', '#20C997', '#FFC107']
+                }]
+            },
+            options: {
+                maintainAspectRatio: false,
+                plugins: { legend: { display: false } },
+                scales: { y: { beginAtZero: true, max: 100 } }
+            }
+        });
+
+        const ctx2 = document.getElementById('lossChart').getContext('2d');
+        new Chart(ctx2, {
+            type: 'doughnut',
+            data: {
+                labels: ['Security Flaws', 'Technical Debt', 'Operational Failures'],
+                datasets: [{
+                    data: [45, 35, 20],
+                    backgroundColor: ['#20C997', '#FFC107', '#495057']
+                }]
+            },
+            options: {
+                maintainAspectRatio: false,
+                plugins: { legend: { position: 'bottom' } }
+            }
+        });
+    </script>
+</body>
+</html>

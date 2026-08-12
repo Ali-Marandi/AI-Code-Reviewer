@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+      body { margin: 0; }
+      .slide-container { 
+        width: 1280px; 
+        min-height: 720px; 
+        background: #E9ECEF; 
+        font-family: 'Segoe UI', sans-serif;
+        position: relative;
+        overflow: hidden;
+      }
+      .header-block {
+        padding-top: 60px;
+        padding-left: 60px;
+      }
+      h2 {
+        font-size: 64px;
+        font-weight: 800;
+        color: #212529;
+        text-transform: uppercase;
+        margin-bottom: 20px;
+      }
+      .protection-grid {
+        display: grid;
+        grid-template-columns: 1fr 1.2fr;
+        gap: 40px;
+        padding-left: 60px;
+        padding-right: 60px;
+        padding-top: 20px;
+      }
+      .vault-box {
+        background: #212529;
+        color: white;
+        padding: 40px;
+        clip-path: polygon(0 15%, 15% 0, 100% 0, 100% 85%, 85% 100%, 0 100%);
+        border-top: 8px solid #FFC107;
+      }
+      .encryption-details {
+        background: #FFFFFF;
+        padding: 40px;
+        clip-path: polygon(0 0, 100% 0, 100% 90%, 90% 100%, 0 100%);
+        border-left: 10px solid #20C997;
+      }
+      .tech-spec {
+        margin-bottom: 25px;
+      }
+      .tech-spec b { color: #20C997; display: block; margin-bottom: 5px; font-size: 20px; }
+      .tech-spec p { font-size: 16px; color: #495057; line-height: 1.5; }
+      .vault-box i { font-size: 60px; color: #FFC107; margin-bottom: 20px; }
+      .vault-box h3 { font-size: 28px; margin-bottom: 15px; }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="header-block">
+            <h2>E2EE Data<br>Protection</h2>
+        </div>
+        <div class="protection-grid">
+            <div class="vault-box">
+                <i class="fas fa-user-shield"></i>
+                <h3>Secure Credential Vault</h3>
+                <p style="font-size: 18px; line-height: 1.6; opacity: 0.9;">Zero plain-text storage. All GitHub tokens and API keys are isolated from the operating system and other apps.</p>
+            </div>
+            <div class="encryption-details">
+                <div class="tech-spec">
+                    <b>AES-256-GCM Encryption</b>
+                    <p>Authenticated encryption standard ensuring both confidentiality and integrity of local configuration files.</p>
+                </div>
+                <div class="tech-spec">
+                    <b>PBKDF2 Key Derivation</b>
+                    <p>Master passwords are salted and hashed 100,000+ times to derive unique cryptographic keys per user.</p>
+                </div>
+                <div class="tech-spec">
+                    <b>Local Data Isolation</b>
+                    <p>No source code is ever indexed or stored on cloud servers, maintaining 100% proprietary IP privacy.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

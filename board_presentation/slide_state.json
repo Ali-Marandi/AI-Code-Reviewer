@@ -1,0 +1,67 @@
+{
+  "project_info": {
+    "title": "Strategic Growth & Market Position",
+    "created": 1786545917.333,
+    "last_updated": 1786546064.644,
+    "total_slides": 5
+  },
+  "slides": [
+    {
+      "id": "growth_pos",
+      "state": "edited",
+      "pageNum": 1
+    },
+    {
+      "id": "security_arch",
+      "state": "edited",
+      "pageNum": 2
+    },
+    {
+      "id": "ops_efficiency",
+      "state": "edited",
+      "pageNum": 3
+    },
+    {
+      "id": "global_compliance",
+      "state": "edited",
+      "pageNum": 4
+    },
+    {
+      "id": "vision_finance",
+      "state": "edited",
+      "pageNum": 5
+    }
+  ],
+  "outline": [
+    {
+      "id": "growth_pos",
+      "title": "Strategic Growth & Market Position",
+      "summary": "Review of the successful V1.0.2 release and market positioning.",
+      "image_plan": "Use a suitable image if needed"
+    },
+    {
+      "id": "security_arch",
+      "title": "Comprehensive Security Architecture",
+      "summary": "Details on local-first privacy, hybrid security engine, and E2EE data protection.",
+      "image_plan": "Use a suitable image if needed"
+    },
+    {
+      "id": "ops_efficiency",
+      "title": "Automated Operations & Efficiency",
+      "summary": "Workflow for CI/CD, MSI packaging, and automated customer onboarding.",
+      "image_plan": "Use a suitable image if needed"
+    },
+    {
+      "id": "global_compliance",
+      "title": "Global Scalability & Compliance",
+      "summary": "Overview of B2B pricing, GDPR compliance, and automated Prometheus monitoring.",
+      "image_plan": "Use a suitable image if needed"
+    },
+    {
+      "id": "vision_finance",
+      "title": "Long-Term Vision & Projections",
+      "summary": "Financial forecast, pilot conversion strategy, and future growth trajectory.",
+      "image_plan": "Use a suitable image if needed"
+    }
+  ]
+}
