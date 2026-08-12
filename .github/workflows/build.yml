@@ -25,14 +25,15 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: Run unit tests
+      - name: Compile translations and run unit tests
         run: |
-          python -m py_compile core/ai_engine.py ui/main_window.py app.py
+          pyside6-lrelease translations/ai_code_reviewer_fa.ts -qm translations/ai_code_reviewer_fa.qm
+          python -m py_compile core/ai_engine.py core/i18n.py ui/main_window.py app.py
           python -m unittest discover -s tests -v
 
       - name: Build EXE with local Enterprise Rule Pack
         run: |
-          pyinstaller --noconfirm --clean --onefile --windowed --name AI-Code-Reviewer-Enterprise --add-data "rules;rules" app.py
+          pyinstaller --noconfirm --clean --onefile --windowed --name AI-Code-Reviewer-Enterprise --add-data "rules;rules" --add-data "translations;translations" app.py
 
       - name: Release
         uses: softprops/action-gh-release@v2

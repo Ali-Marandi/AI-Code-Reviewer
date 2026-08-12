@@ -39,7 +39,7 @@ class MainWindow(QMainWindow):
         self.last_review_context = {}
         self.review_history_days = 30
 
-        self.setWindowTitle("AI-Code-Reviewer Enterprise Edition v1.0.6")
+        self.setWindowTitle(self.tr("AI-Code-Reviewer Enterprise Edition v1.1.0"))
         self.resize(1300, 850)
 
         self.setStyleSheet("""
@@ -93,23 +93,23 @@ class MainWindow(QMainWindow):
         self.sidebar_layout.setContentsMargins(0, 0, 0, 0)
         self.sidebar_layout.setSpacing(0)
 
-        logo_label = QLabel("  AI-Code-Reviewer\n  Enterprise v1.0.6")
+        logo_label = QLabel(self.tr("  AI-Code-Reviewer\n  Enterprise v1.1.0"))
         logo_label.setStyleSheet("font-size: 16px; font-weight: bold; color: #4ec9b0; padding: 20px 15px; background-color: #1f1f20;")
         self.sidebar_layout.addWidget(logo_label)
 
         self.nav_buttons = []
-        self.btn_dashboard = self.add_nav_btn(" Dashboard", "fa5s.tachometer-alt", 0, active=True)
-        self.btn_repos = self.add_nav_btn(" Repositories", "fa5s.code-branch", 1)
-        self.btn_prs = self.add_nav_btn(" Pull Requests & Review", "fa5s.tasks", 2)
-        self.btn_history = self.add_nav_btn(" Findings Trend", "fa5s.chart-line", 3)
-        self.btn_settings = self.add_nav_btn(" Settings", "fa5s.cog", 4)
+        self.btn_dashboard = self.add_nav_btn(self.tr(" Dashboard"), "fa5s.tachometer-alt", 0, active=True)
+        self.btn_repos = self.add_nav_btn(self.tr(" Repositories"), "fa5s.code-branch", 1)
+        self.btn_prs = self.add_nav_btn(self.tr(" Pull Requests & Review"), "fa5s.tasks", 2)
+        self.btn_history = self.add_nav_btn(self.tr(" Findings Trend"), "fa5s.chart-line", 3)
+        self.btn_settings = self.add_nav_btn(self.tr(" Settings"), "fa5s.cog", 4)
 
         self.sidebar_layout.addStretch()
 
         status_frame = QFrame()
         status_layout = QVBoxLayout(status_frame)
         status_layout.setContentsMargins(15, 15, 15, 15)
-        self.lbl_status = QLabel("Status: Ready")
+        self.lbl_status = QLabel(self.tr("Status: Ready"))
         self.lbl_status.setStyleSheet("color: #4ec9b0; font-size: 12px;")
         status_layout.addWidget(self.lbl_status)
         self.sidebar_layout.addWidget(status_frame)
@@ -147,19 +147,19 @@ class MainWindow(QMainWindow):
         layout = QVBoxLayout(page)
         layout.setContentsMargins(40, 40, 40, 40)
 
-        title = QLabel("Enterprise Dashboard")
+        title = QLabel(self.tr("Enterprise Dashboard"))
         title.setObjectName("Title")
         layout.addWidget(title)
 
-        subtitle = QLabel("Overview of automated AI code reviews, security scans, and repository health.")
+        subtitle = QLabel(self.tr("Overview of automated AI code reviews, security scans, and repository health."))
         subtitle.setObjectName("Subtitle")
         layout.addWidget(subtitle)
 
         stats_layout = QHBoxLayout()
-        self.stat_repos = self.create_card("Connected Repos", "0")
-        self.stat_prs = self.create_card("Active PRs", "0")
-        self.stat_issues = self.create_card("Findings in Last Review", "0")
-        self.stat_security = self.create_card("Security Risk Level", "Secure")
+        self.stat_repos = self.create_card(self.tr("Connected Repos"), "0")
+        self.stat_prs = self.create_card(self.tr("Active PRs"), "0")
+        self.stat_issues = self.create_card(self.tr("Findings in Last Review"), "0")
+        self.stat_security = self.create_card(self.tr("Security Risk Level"), self.tr("Secure"))
 
         stats_layout.addWidget(self.stat_repos[0])
         stats_layout.addWidget(self.stat_prs[0])
@@ -195,11 +195,11 @@ class MainWindow(QMainWindow):
         layout = QVBoxLayout(page)
         layout.setContentsMargins(40, 40, 40, 40)
 
-        title = QLabel("Repository Management")
+        title = QLabel(self.tr("Repository Management"))
         title.setObjectName("Title")
         layout.addWidget(title)
 
-        subtitle = QLabel("Select a repository to inspect pull requests and run enterprise AI audits.")
+        subtitle = QLabel(self.tr("Select a repository to inspect pull requests and run enterprise AI audits."))
         subtitle.setObjectName("Subtitle")
         layout.addWidget(subtitle)
 
@@ -208,7 +208,7 @@ class MainWindow(QMainWindow):
         layout.addWidget(self.repo_list)
 
         btn_layout = QHBoxLayout()
-        self.btn_load_repos = QPushButton("Fetch Repositories from GitHub")
+        self.btn_load_repos = QPushButton(self.tr("Fetch Repositories from GitHub"))
         self.btn_load_repos.clicked.connect(self.fetch_repositories)
         btn_layout.addWidget(self.btn_load_repos)
         layout.addLayout(btn_layout)
@@ -220,11 +220,11 @@ class MainWindow(QMainWindow):
         layout = QVBoxLayout(page)
         layout.setContentsMargins(40, 40, 40, 40)
 
-        title = QLabel("Pull Request Review & SAST Audit")
+        title = QLabel(self.tr("Pull Request Review & SAST Audit"))
         title.setObjectName("Title")
         layout.addWidget(title)
 
-        self.lbl_selected_context = QLabel("Current Repository: None Selected")
+        self.lbl_selected_context = QLabel(self.tr("Current Repository: None Selected"))
         self.lbl_selected_context.setObjectName("Subtitle")
         layout.addWidget(self.lbl_selected_context)
 
@@ -233,12 +233,12 @@ class MainWindow(QMainWindow):
         left_widget = QWidget()
         left_layout = QVBoxLayout(left_widget)
         left_layout.setContentsMargins(0, 0, 0, 0)
-        left_layout.addWidget(QLabel("Open Pull Requests:"))
+        left_layout.addWidget(QLabel(self.tr("Open Pull Requests:")))
         self.pr_list = QListWidget()
         self.pr_list.itemClicked.connect(self.on_pr_selected)
         left_layout.addWidget(self.pr_list)
 
-        self.btn_fetch_prs = QPushButton("Load PRs for Selected Repo")
+        self.btn_fetch_prs = QPushButton(self.tr("Load PRs for Selected Repo"))
         self.btn_fetch_prs.clicked.connect(self.fetch_pull_requests)
         left_layout.addWidget(self.btn_fetch_prs)
         splitter.addWidget(left_widget)
@@ -247,7 +247,7 @@ class MainWindow(QMainWindow):
         right_layout = QVBoxLayout(right_widget)
         right_layout.setContentsMargins(0, 0, 0, 0)
 
-        right_layout.addWidget(QLabel("Audit Findings & Issues:"))
+        right_layout.addWidget(QLabel(self.tr("Audit Findings & Issues:")))
         self.issues_table = QTableWidget()
         self.issues_table.setColumnCount(6)
         self.issues_table.setHorizontalHeaderLabels(["Line", "Severity", "Rule", "Category", "Description", "Suggestion"])
@@ -261,12 +261,12 @@ class MainWindow(QMainWindow):
         right_layout.addWidget(self.progress_bar)
 
         review_actions = QHBoxLayout()
-        btn_run_review = QPushButton("Run AI Enterprise Review & Post Comment")
+        btn_run_review = QPushButton(self.tr("Run AI Enterprise Review & Post Comment"))
         btn_run_review.setStyleSheet("background-color: #007acc; font-weight: bold; padding: 10px;")
         btn_run_review.clicked.connect(self.run_ai_review)
         review_actions.addWidget(btn_run_review)
 
-        self.btn_export_sarif = QPushButton("Export SARIF")
+        self.btn_export_sarif = QPushButton(self.tr("Export SARIF"))
         self.btn_export_sarif.setToolTip("Save the current local review findings as a SARIF 2.1.0 file. This does not upload data anywhere.")
         self.btn_export_sarif.setEnabled(False)
         self.btn_export_sarif.clicked.connect(self.export_sarif)
@@ -284,7 +284,7 @@ class MainWindow(QMainWindow):
         layout = QVBoxLayout(page)
         layout.setContentsMargins(40, 40, 40, 40)
 
-        title = QLabel("Local Findings Trend")
+        title = QLabel(self.tr("Local Findings Trend"))
         title.setObjectName("Title")
         layout.addWidget(title)
 
@@ -320,13 +320,18 @@ class MainWindow(QMainWindow):
         layout = QVBoxLayout(page)
         layout.setContentsMargins(40, 40, 40, 40)
 
-        title = QLabel("Enterprise Settings")
+        title = QLabel(self.tr("Enterprise Settings"))
         title.setObjectName("Title")
         layout.addWidget(title)
 
-        subtitle = QLabel("Configure GitHub authentication, API tokens, and AI model parameters.")
+        subtitle = QLabel(self.tr("Configure GitHub authentication, API tokens, and AI model parameters."))
         subtitle.setObjectName("Subtitle")
         layout.addWidget(subtitle)
+
+        locale_note = QLabel(self.tr("Display language is selected at startup with --locale (en, fa, or auto). Restart after changing language."))
+        locale_note.setObjectName("Subtitle")
+        locale_note.setWordWrap(True)
+        layout.addWidget(locale_note)
 
         layout.addWidget(QLabel("GitHub Personal Access Token:"))
         self.token_input = QLineEdit()

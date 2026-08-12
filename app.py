@@ -6,17 +6,22 @@ from PySide6.QtWidgets import QApplication
 
 from core.ai_engine import AIEngine
 from core.github_client import GitHubClient
+from core.i18n import SUPPORTED_LOCALES, install_translation, normalize_locale
 from ui.main_window import MainWindow
 
 
 SUPPORTED_REVIEW_EXTENSIONS = {".py", ".js", ".jsx", ".ts", ".tsx", ".go", ".java", ".cpp", ".cc", ".cxx", ".rs"}
 
 
-def run_gui(token):
+def run_gui(token, locale="auto"):
     app = QApplication(sys.argv)
+    selected_locale = normalize_locale(locale)
+    translator = install_translation(app, selected_locale)
     github_client = GitHubClient(token)
     ai_engine = AIEngine()
     window = MainWindow(github_client, ai_engine)
+    window.selected_locale = selected_locale
+    window.translation_active = translator is not None
     window.show()
     sys.exit(app.exec())
 
@@ -84,6 +89,12 @@ if __name__ == "__main__":
     parser.add_argument("--repo", help="Repository name")
     parser.add_argument("--pr", type=int, help="Pull request number")
     parser.add_argument(
+        "--locale",
+        default="auto",
+        choices=["auto", *sorted(SUPPORTED_LOCALES)],
+        help="Desktop display language: auto, en, or fa. Only bundled and reviewed translations are loaded.",
+    )
+    parser.add_argument(
         "--sarif-output",
         help="Optional local output path for SARIF 2.1.0 results. The application does not upload this file automatically.",
     )
@@ -99,4 +110,4 @@ if __name__ == "__main__":
             parser.error("--owner, --repo, and --pr are required with --cli")
         run_cli(args.token, args.owner, args.repo, args.pr, args.sarif_output, args.rule_pack)
     else:
-        run_gui(args.token)
+        run_gui(args.token, args.locale)

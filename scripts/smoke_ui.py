@@ -10,9 +10,11 @@ if str(PROJECT_ROOT) not in sys.path:
 os.environ.setdefault("QT_QPA_PLATFORM", "offscreen")
 os.environ.setdefault("OPENAI_API_KEY", "test-key-not-used-for-ui-smoke-test")
 
+from PySide6.QtCore import Qt
 from PySide6.QtWidgets import QApplication
 
 from core.ai_engine import AIEngine
+from core.i18n import install_translation
 from ui.main_window import MainWindow
 
 
@@ -30,6 +32,14 @@ def main():
         assert window.rule_pack_input.text().endswith("enterprise_default_rules.json")
         window.refresh_history()
         window.close()
+
+        translator = install_translation(app, "fa")
+        assert translator is not None
+        localized_window = MainWindow(DummyGitHubClient(), engine)
+        assert localized_window.layoutDirection() == Qt.RightToLeft
+        assert "بازبین کد" in localized_window.windowTitle()
+        localized_window.close()
+        app.removeTranslator(translator)
     app.quit()
     print("UI smoke test passed")
 

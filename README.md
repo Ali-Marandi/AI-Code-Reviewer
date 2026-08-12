@@ -1,6 +1,6 @@
 # AI-Code-Reviewer Enterprise
 
-**AI-Code-Reviewer Enterprise** یک ابزار Local-first برای بازبینی کد، تحلیل ایستای امنیتی و مدیریت یافته‌ها در جریان GitHub است. نسخه v1.0.6 قابلیت اعمال قواعد سازمانی از طریق Rule Pack محلی، خروجی استاندارد SARIF و مشاهده روند محلی یافته‌ها را اضافه می‌کند.
+**AI-Code-Reviewer Enterprise** یک ابزار Local-first برای بازبینی کد، تحلیل ایستای امنیتی و مدیریت یافته‌ها در جریان GitHub است. نسخه v1.1.0 قابلیت اعمال قواعد سازمانی از طریق Rule Pack محلی، خروجی استاندارد SARIF و مشاهده روند محلی یافته‌ها را اضافه می‌کند.
 
 > این ابزار تصمیم امنیتی نهایی یا جایگزین بازبینی انسانی نیست. هر یافته، به‌ویژه یافته‌های تولیدشده توسط AI یا Regex، باید در بافت کد و مدل تهدید سازمان بازبینی شود.
 
@@ -14,6 +14,7 @@
 | خروجی SARIF 2.1.0 | ذخیره یافته‌ها به‌صورت فایل محلی سازگار با جریان‌های Code Scanning/CI. SARIF فرمت استاندارد خروجی ابزارهای تحلیل ایستا است.[1] |
 | Trend محلی یافته‌ها | ذخیره metadata اسکن و fingerprint هش‌شده برای روند ۳۰ روزه؛ متن کد منبع، Secret و snippet در تاریخچه ذخیره نمی‌شود. |
 | رابط دسکتاپ ویندوز | مرور مخزن و Pull Request، جدول یافته‌ها با Rule ID، انتخاب Rule Pack محلی، Export SARIF و صفحه Findings Trend. |
+| پایه محلی‌سازی قابل‌اعتماد | پشتیبانی از `--locale auto|en|fa`، Catalog فارسی بسته‌بندی‌شده، راست‌به‌چپ برای فارسی و عدم بارگذاری Catalog از مسیر شبکه یا ورودی کاربر. |
 | CI/CD | اجرای CLI روی Pull Request و تولید اختیاری فایل SARIF برای مصرف مستقل در خط لوله. GitHub امکان بارگذاری SARIF ابزارهای ثالث را در Code Scanning فراهم می‌کند.[2] |
 
 ## نصب
@@ -36,6 +37,16 @@ python app.py
 پس از ورود توکن GitHub در Settings، یک مخزن و Pull Request را انتخاب کنید. در همان صفحه Review، یافته‌ها شامل **Severity**، **Rule ID**، دسته‌بندی، توضیح و پیشنهاد نمایش داده می‌شوند. دکمه **Export SARIF** فقط فایل را روی دستگاه کاربر ذخیره می‌کند؛ داده‌ای را به GitHub یا سرویس ثالث بارگذاری نمی‌کند.
 
 در Settings می‌توان مسیر Rule Pack JSON را انتخاب کرد. فقط Rule Packهای JSON معتبر با `schema_version: 1` پذیرفته می‌شوند. Rule یا Regex نامعتبر، به‌عنوان Notice ثبت می‌شود و Local SAST را متوقف نمی‌کند.
+
+## زبان رابط و محلی‌سازی
+
+نسخه v1.1.0 در شروع برنامه locale را انتخاب می‌کند. `auto` فقط بین زبان‌های بسته‌بندی‌شده جابه‌جا می‌شود و در نبود Catalog پشتیبانی‌شده به انگلیسی برمی‌گردد. برای اجرای رابط فارسی از دستور زیر استفاده کنید:
+
+```bash
+python app.py --locale fa
+```
+
+Catalogهای ترجمه در مسیر `translations/` و تحت کنترل نسخه نگهداری می‌شوند. برنامه فقط Catalogهای بسته‌بندی‌شده را بارگذاری می‌کند؛ فایل ترجمه از مسیر شبکه، URL یا ورودی انتخاب‌شده توسط کاربر پذیرفته نمی‌شود. این تصمیم با توصیه Qt مبنی بر پذیرش ترجمه فقط از منابع مورداعتماد هم‌راستاست.[3]
 
 ## ساختار Rule Pack
 
@@ -63,7 +74,7 @@ Rule Pack پیش‌فرض در مسیر `rules/enterprise_default_rules.json` ق
 
 | فیلد | الزام | توضیح |
 |---|---|---|
-| `schema_version` | بله | در v1.0.6 باید مقدار `1` باشد. |
+| `schema_version` | بله | در v1.1.0 باید مقدار `1` باشد. |
 | `id` | بله | شناسه یکتای Rule برای ممیزی، Trend و SARIF. |
 | `pattern` | بله | Regex با سقف طول و اعتبارسنجی در زمان بارگذاری. |
 | `languages` | بله | فهرست زبان‌های پشتیبانی‌شده یا `all`. |
@@ -90,7 +101,7 @@ python app.py \
 
 ## حریم خصوصی و محدودیت‌ها
 
-| موضوع | رفتار v1.0.6 |
+| موضوع | رفتار v1.1.0 |
 |---|---|
 | Rule Pack | فقط از فایل JSON محلی خوانده می‌شود؛ امکان اجرای اسکریپت یا Plugin وجود ندارد. |
 | Trend History | زمان اسکن، هش مسیر، تعداد یافته، شدت، شناسه Rule و fingerprint هش‌شده نگهداری می‌شود. |
@@ -113,3 +124,4 @@ Commercial License — All Rights Reserved.
 
 [1]: https://docs.oasis-open.org/sarif/sarif/v2.1.0/sarif-v2.1.0.html "OASIS — Static Analysis Results Interchange Format (SARIF) Version 2.1.0"
 [2]: https://docs.github.com/en/code-security/how-tos/find-and-fix-code-vulnerabilities/integrate-with-existing-tools/upload-sarif-file "GitHub Docs — Uploading a SARIF file to GitHub"
+[3]: https://doc.qt.io/qtforpython-6/PySide6/QtCore/QTranslator.html "Qt for Python — QTranslator"
