@@ -71,9 +71,12 @@ class EnterpriseAnalysisTests(unittest.TestCase):
         summary = self.engine.get_history_summary(30)
         self.assertEqual(summary["scans"], 1)
 
-        with sqlite3.connect(self.db_path) as connection:
+        connection = sqlite3.connect(self.db_path)
+        try:
             history_columns = [row[1] for row in connection.execute("PRAGMA table_info(scan_history)")]
             stored_values = " ".join(str(row) for row in connection.execute("SELECT * FROM scan_history").fetchall())
+        finally:
+            connection.close()
         self.assertNotIn("code", history_columns)
         self.assertNotIn("do-not-store-this-code", stored_values)
 

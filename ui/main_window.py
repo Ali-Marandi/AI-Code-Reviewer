@@ -39,7 +39,7 @@ class MainWindow(QMainWindow):
         self.last_review_context = {}
         self.review_history_days = 30
 
-        self.setWindowTitle("AI-Code-Reviewer Enterprise Edition v1.0.5")
+        self.setWindowTitle("AI-Code-Reviewer Enterprise Edition v1.0.6")
         self.resize(1300, 850)
 
         self.setStyleSheet("""
@@ -93,7 +93,7 @@ class MainWindow(QMainWindow):
         self.sidebar_layout.setContentsMargins(0, 0, 0, 0)
         self.sidebar_layout.setSpacing(0)
 
-        logo_label = QLabel("  AI-Code-Reviewer\n  Enterprise v1.0.5")
+        logo_label = QLabel("  AI-Code-Reviewer\n  Enterprise v1.0.6")
         logo_label.setStyleSheet("font-size: 16px; font-weight: bold; color: #4ec9b0; padding: 20px 15px; background-color: #1f1f20;")
         self.sidebar_layout.addWidget(logo_label)
 
