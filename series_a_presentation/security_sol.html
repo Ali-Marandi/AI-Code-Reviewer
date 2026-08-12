@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+      body { margin: 0; }
+      .slide-container {
+        width: 1280px;
+        min-height: 720px;
+        background: #1A1D21;
+        font-family: 'Inter', 'Segoe UI', sans-serif;
+        position: relative;
+        overflow: hidden;
+      }
+      .bg-gradient {
+        position: absolute;
+        top: -200px;
+        right: -200px;
+        width: 800px;
+        height: 800px;
+        background: radial-gradient(circle, rgba(0, 255, 136, 0.05) 0%, rgba(26, 29, 33, 0) 70%);
+        z-index: 1;
+      }
+      .header-block {
+        padding-top: 100px;
+        padding-left: 80px;
+        z-index: 10;
+        position: relative;
+      }
+      h1 {
+        font-size: 80px;
+        font-weight: 800;
+        color: #FFFFFF;
+        text-transform: uppercase;
+        line-height: 1.1;
+        margin-bottom: 20px;
+      }
+      .highlight { color: #00FF88; }
+      .points-container {
+        display: flex;
+        padding-left: 80px;
+        padding-top: 60px;
+        gap: 60px;
+        z-index: 10;
+        position: relative;
+      }
+      .point-card {
+        width: 320px;
+        background: rgba(255, 255, 255, 0.03);
+        border-top: 4px solid #00FF88;
+        padding: 30px;
+      }
+      .icon-box {
+        font-size: 40px;
+        color: #00FF88;
+        margin-bottom: 20px;
+      }
+      h3 {
+        color: #FFFFFF;
+        font-size: 24px;
+        margin-bottom: 15px;
+        font-weight: 700;
+      }
+      p {
+        color: #A0A0A0;
+        font-size: 16px;
+        line-height: 1.6;
+      }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="bg-gradient"></div>
+        <div class="header-block">
+            <h1>Local Architecture:<br><span class="highlight">Solving IP Security</span></h1>
+        </div>
+        <div class="points-container">
+            <div class="point-card">
+                <div class="icon-box"><i class="fas fa-user-shield"></i></div>
+                <h3>Zero Cloud Exposure</h3>
+                <p>Proprietary source code never leaves the enterprise infrastructure, eliminating leak risks.</p>
+            </div>
+            <div class="point-card">
+                <div class="icon-box"><i class="fas fa-balance-scale"></i></div>
+                <h3>GDPR Compliant</h3>
+                <p>Built-in data privacy protocols ensuring full compliance with international regulations.</p>
+            </div>
+            <div class="point-card">
+                <div class="icon-box"><i class="fas fa-desktop"></i></div>
+                <h3>Local-First UX</h3>
+                <p>Native desktop performance for large-scale repositories without cloud latency.</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

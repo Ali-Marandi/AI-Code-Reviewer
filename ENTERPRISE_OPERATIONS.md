@@ -28,7 +28,7 @@ from core.secure_storage import SecureStorage
 
 def test_local_sast_secret_detection():
     scanner = LocalSecurityScanner()
-    code = "api_key = 'ghp_1234567890abcdefghijklmnopqrstuvwxyzAB'\n"
+    code = "api_key = 'ghp_REDACTED_EXAMPLE_TOKENAB'\n"
     issues = scanner.scan_code(code)
     assert len(issues) > 0
     assert issues[0]['category'] == 'Security'

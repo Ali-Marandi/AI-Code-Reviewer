@@ -1,0 +1,20 @@
+# Python bytecode and test caches
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.coverage
+
+# Local AI-Code-Reviewer state and generated artifacts
+review_cache.db
+*.sarif
+*.log
+build/
+dist/
+*.spec
+
+# Local environments and operating-system files
+.venv/
+venv/
+.env
+.DS_Store
+Thumbs.db

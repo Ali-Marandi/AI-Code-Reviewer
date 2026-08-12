@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+      body { margin: 0; }
+      .slide-container {
+        width: 1280px;
+        min-height: 720px;
+        background: #1A1D21;
+        font-family: 'Inter', sans-serif;
+        position: relative;
+        overflow: hidden;
+      }
+      .header-block {
+        padding-top: 60px;
+        padding-left: 80px;
+      }
+      h2 {
+        font-size: 64px;
+        font-weight: 800;
+        color: #FFFFFF;
+        text-transform: uppercase;
+        margin-bottom: 20px;
+      }
+      .highlight { color: #00FF88; }
+      .main-grid {
+        display: grid;
+        grid-template-columns: 1.2fr 0.8fr;
+        gap: 40px;
+        padding-left: 80px;
+        padding-right: 80px;
+        padding-top: 10px;
+      }
+      .chart-container {
+        background: rgba(255, 255, 255, 0.02);
+        padding: 30px;
+        border-top: 6px solid #00FF88;
+        height: 400px;
+      }
+      .info-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+      .info-card {
+        background: rgba(255, 255, 255, 0.03);
+        padding: 25px;
+        border-left: 4px solid #FFD700;
+      }
+      .info-title {
+        font-size: 20px;
+        font-weight: 800;
+        color: #FFD700;
+        margin-bottom: 10px;
+        display: block;
+      }
+      .info-desc {
+        font-size: 16px;
+        color: #FFFFFF;
+        opacity: 0.8;
+        line-height: 1.4;
+      }
+      .chart-label {
+        color: #FFFFFF;
+        font-size: 18px;
+        font-weight: 700;
+        margin-bottom: 15px;
+        text-align: center;
+      }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="header-block">
+            <h2>B2B SaaS Revenue &<br><span class="highlight">Financial Outlook</span></h2>
+        </div>
+        <div class="main-grid">
+            <div class="chart-container">
+                <div class="chart-label">5-Year ARR Trajectory ($M)</div>
+                <div style="height: 320px;">
+                    <canvas id="arrChart"></canvas>
+                </div>
+            </div>
+            <div class="info-grid">
+                <div class="info-card">
+                    <span class="info-title">Tiered SaaS Pricing</span>
+                    <p class="info-desc">Standardized seat-based annual licensing targeting high-ACV corporate clients globally.</p>
+                </div>
+                <div class="info-card">
+                    <span class="info-title">85%+ Gross Margins</span>
+                    <p class="info-desc">Optimized AI orchestration and low-overhead desktop distribution model.</p>
+                </div>
+                <div class="info-card">
+                    <span class="info-title">EBITDA Breakeven</span>
+                    <p class="info-desc">Path to positive operational profitability by Year 4 through high-margin efficiency.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        const ctx = document.getElementById('arrChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Year 1', 'Year 2', 'Year 3', 'Year 4', 'Year 5'],
+                datasets: [{
+                    label: 'ARR ($M)',
+                    data: [0.15, 0.6, 2.25, 6.3, 15.4],
+                    backgroundColor: '#00FF88',
+                    borderRadius: 5
+                }]
+            },
+            options: {
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        grid: { color: 'rgba(255, 255, 255, 0.1)' },
+                        ticks: { color: '#A0A0A0' }
+                    },
+                    x: {
+                        grid: { display: false },
+                        ticks: { color: '#A0A0A0' }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>

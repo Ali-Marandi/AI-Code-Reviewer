@@ -1,0 +1,68 @@
+{
+  "schema_version": 1,
+  "name": "AI-Code-Reviewer Enterprise Default Rules",
+  "version": "1.0.0",
+  "description": "Conservative, local-only advisory rules for security-sensitive coding patterns. Review each finding in context.",
+  "rules": [
+    {
+      "id": "ACR-PY-SHELL-TRUE",
+      "pattern": "subprocess\\.(?:call|run|Popen)\\s*\\([^\\n]*shell\\s*=\\s*True",
+      "languages": ["python"],
+      "severity": "High",
+      "category": "Security",
+      "description": "A subprocess call enables shell=True, which can expose command construction to shell injection risks.",
+      "suggestion": "Avoid shell=True where possible. Pass a fixed command and argument list, and validate any untrusted input.",
+      "ignore_case": false
+    },
+    {
+      "id": "ACR-JAVA-SHELL-C",
+      "pattern": "new\\s+ProcessBuilder\\s*\\(\\s*\\\"(?:sh|bash)\\\"\\s*,\\s*\\\"-c\\\"",
+      "languages": ["java"],
+      "severity": "High",
+      "category": "Security",
+      "description": "ProcessBuilder invokes a shell with -c, which can expose dynamically constructed commands to injection risks.",
+      "suggestion": "Prefer fixed command arguments without a shell. Validate and constrain all externally influenced values.",
+      "ignore_case": false
+    },
+    {
+      "id": "ACR-GO-SHELL-C",
+      "pattern": "exec\\.Command\\s*\\(\\s*\\\"(?:sh|bash)\\\"\\s*,\\s*\\\"-c\\\"",
+      "languages": ["go"],
+      "severity": "High",
+      "category": "Security",
+      "description": "exec.Command launches a shell with -c, which can expose dynamically constructed commands to injection risks.",
+      "suggestion": "Use a fixed executable and explicit arguments; do not concatenate untrusted values into a shell command.",
+      "ignore_case": false
+    },
+    {
+      "id": "ACR-RUST-SHELL-C",
+      "pattern": "Command::new\\s*\\(\\s*\\\"(?:sh|bash)\\\"\\s*\\)\\s*\\.arg\\s*\\(\\s*\\\"-c\\\"",
+      "languages": ["rust"],
+      "severity": "High",
+      "category": "Security",
+      "description": "Rust Command invokes a shell with -c, which can expose dynamically constructed commands to injection risks.",
+      "suggestion": "Use Command with a fixed executable and separately supplied, validated arguments.",
+      "ignore_case": false
+    },
+    {
+      "id": "ACR-JS-CHILD-PROCESS-EXEC",
+      "pattern": "(?:child_process\\.)?exec\\s*\\(",
+      "languages": ["javascript", "typescript"],
+      "severity": "Medium",
+      "category": "Security",
+      "description": "A JavaScript shell command execution API is used. Review command construction and input validation.",
+      "suggestion": "Prefer execFile or spawn with fixed arguments, and avoid interpolating untrusted input into commands.",
+      "ignore_case": false
+    },
+    {
+      "id": "ACR-GENERIC-HARDCODED-CREDENTIAL",
+      "pattern": "(?:password|secret|token)\\s*[:=]\\s*[\\\"'][^\\\"']{8,}[\\\"']",
+      "languages": ["all"],
+      "severity": "Medium",
+      "category": "Security",
+      "description": "A credential-like value appears to be hardcoded in source code.",
+      "suggestion": "Move secrets to an approved secret manager or environment variable, then rotate any exposed credential.",
+      "ignore_case": true
+    }
+  ]
+}

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+      body { margin: 0; }
+      .slide-container {
+        width: 1280px;
+        min-height: 720px;
+        background: #1A1D21;
+        font-family: 'Inter', sans-serif;
+        position: relative;
+        overflow: hidden;
+      }
+      .header-block {
+        padding-top: 60px;
+        padding-left: 80px;
+      }
+      h2 {
+        font-size: 64px;
+        font-weight: 800;
+        color: #FFFFFF;
+        text-transform: uppercase;
+        margin-bottom: 20px;
+      }
+      .highlight { color: #00FF88; }
+      .main-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+        padding-left: 80px;
+        padding-right: 80px;
+        padding-top: 20px;
+      }
+      .ask-card {
+        background: rgba(0, 255, 136, 0.05);
+        border-top: 8px solid #00FF88;
+        padding: 40px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+      .roadmap-card {
+        background: rgba(255, 215, 0, 0.05);
+        border-top: 8px solid #FFD700;
+        padding: 40px;
+      }
+      .ask-value {
+        font-size: 80px;
+        font-weight: 900;
+        color: #00FF88;
+        line-height: 1;
+        margin-bottom: 10px;
+      }
+      .ask-label {
+        font-size: 24px;
+        font-weight: 700;
+        color: #FFFFFF;
+        text-transform: uppercase;
+        margin-bottom: 30px;
+      }
+      .valuation-box {
+        background: #FFFFFF;
+        color: #1A1D21;
+        padding: 15px 25px;
+        font-weight: 800;
+        font-size: 20px;
+        display: inline-block;
+      }
+      .roadmap-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 15px;
+        margin-bottom: 25px;
+      }
+      .roadmap-item i {
+        font-size: 24px;
+        color: #FFD700;
+        margin-top: 5px;
+      }
+      .item-title {
+        font-size: 20px;
+        font-weight: 800;
+        color: #FFFFFF;
+        display: block;
+        margin-bottom: 5px;
+      }
+      .item-desc {
+        font-size: 15px;
+        color: #A0A0A0;
+        line-height: 1.4;
+      }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="header-block">
+            <h2>Series A Investment &<br><span class="highlight">Strategic Roadmap</span></h2>
+        </div>
+        <div class="main-grid">
+            <div class="ask-card">
+                <div class="ask-value">$10M</div>
+                <div class="ask-label">Series A Funding Ask</div>
+                <div class="valuation-box">$15M PRE-MONEY VALUATION</div>
+            </div>
+            <div class="roadmap-card">
+                <div class="roadmap-item">
+                    <i class="fas fa-globe"></i>
+                    <div>
+                        <span class="item-title">Global Market Penetration</span>
+                        <span class="item-desc">Scaling GTM operations across North America and Europe to capture enterprise market share.</span>
+                    </div>
+                </div>
+                <div class="roadmap-item">
+                    <i class="fas fa-users-cog"></i>
+                    <div>
+                        <span class="item-title">Engineering Scale-up</span>
+                        <span class="item-desc">Expanding R&D teams to accelerate next-gen AI features and plugin ecosystem development.</span>
+                    </div>
+                </div>
+                <div class="roadmap-item">
+                    <i class="fas fa-door-open"></i>
+                    <div>
+                        <span class="item-title">Strategic Exit Pathways</span>
+                        <span class="item-desc">Positioning for acquisition by major DevSecOps platforms or long-term IPO trajectory.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

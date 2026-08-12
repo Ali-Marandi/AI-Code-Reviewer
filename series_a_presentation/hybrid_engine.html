@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+      body { margin: 0; }
+      .slide-container {
+        width: 1280px;
+        min-height: 720px;
+        background: #1A1D21;
+        font-family: 'Inter', sans-serif;
+        position: relative;
+        overflow: hidden;
+      }
+      .header-block {
+        padding-top: 60px;
+        padding-left: 80px;
+      }
+      h2 {
+        font-size: 64px;
+        font-weight: 800;
+        color: #FFFFFF;
+        text-transform: uppercase;
+        margin-bottom: 20px;
+      }
+      .highlight { color: #00FF88; }
+      .main-content {
+        display: flex;
+        padding-left: 80px;
+        padding-right: 80px;
+        gap: 50px;
+        padding-top: 20px;
+      }
+      .tech-block {
+        flex: 1.2;
+        background: rgba(255, 255, 255, 0.02);
+        padding: 40px;
+        border-left: 6px solid #00FF88;
+      }
+      .feature-grid {
+        flex: 0.8;
+        display: grid;
+        grid-template-rows: 1fr 1fr;
+        gap: 20px;
+      }
+      .feature-item {
+        background: rgba(0, 255, 136, 0.05);
+        padding: 30px;
+        border: 1px solid rgba(0, 255, 136, 0.2);
+      }
+      .tech-title { font-size: 28px; font-weight: 800; color: #FFFFFF; margin-bottom: 20px; display: block; }
+      .tech-desc { font-size: 18px; line-height: 1.6; color: #A0A0A0; margin-bottom: 25px; }
+      .stat-box {
+        background: #00FF88;
+        color: #1A1D21;
+        display: inline-block;
+        padding: 15px 25px;
+        font-weight: 900;
+        font-size: 24px;
+        margin-top: 10px;
+      }
+      .feature-title { font-size: 22px; font-weight: 700; color: #00FF88; margin-bottom: 10px; display: block; }
+      .feature-desc { font-size: 15px; color: #FFFFFF; opacity: 0.8; line-height: 1.4; }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="header-block">
+            <h2>Hybrid AI Engine &<br><span class="highlight">Advanced Analytics</span></h2>
+        </div>
+        <div class="main-content">
+            <div class="tech-block">
+                <span class="tech-title">Superior Accuracy Engine</span>
+                <p class="tech-desc">Merging lightning-fast local SAST pre-screening with deep semantic analysis from GPT-4o and Claude 3.5. Optimized for enterprise codebases.</p>
+                <div class="stat-box">60% REDUCTION IN FALSE POSITIVES</div>
+            </div>
+            <div class="feature-grid">
+                <div class="feature-item">
+                    <span class="feature-title">Dependency Graph</span>
+                    <p class="feature-desc">V1.0.3 analyzes complex repo structures to map code relationships and side-effects.</p>
+                </div>
+                <div class="feature-item">
+                    <span class="feature-title">AI Bug Prediction</span>
+                    <p class="feature-desc">Proactive identification of logical flaws and edge cases before code execution.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

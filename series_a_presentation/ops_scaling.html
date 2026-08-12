@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+      body { margin: 0; }
+      .slide-container {
+        width: 1280px;
+        min-height: 720px;
+        background: #1A1D21;
+        font-family: 'Inter', sans-serif;
+        position: relative;
+        overflow: hidden;
+      }
+      .header-block {
+        padding-top: 60px;
+        padding-left: 80px;
+      }
+      h2 {
+        font-size: 64px;
+        font-weight: 800;
+        color: #FFFFFF;
+        text-transform: uppercase;
+        margin-bottom: 20px;
+      }
+      .highlight { color: #00FF88; }
+      .columns-container {
+        display: flex;
+        padding-left: 80px;
+        padding-right: 80px;
+        gap: 30px;
+        /* reduced top padding to lift columns and remove overflow */
+        padding-top: 20px;
+      }
+      .col-card {
+        flex: 1;
+        background: rgba(255, 255, 255, 0.02);
+        border-top: 6px solid #00FF88;
+        padding: 30px;
+        min-height: 350px;
+      }
+      .col-card.accent { border-top-color: #FFD700; }
+      .icon-box { font-size: 40px; color: #00FF88; margin-bottom: 20px; }
+      .accent .icon-box { color: #FFD700; }
+      h3 { font-size: 24px; font-weight: 800; color: #FFFFFF; margin-bottom: 15px; }
+      p { font-size: 16px; line-height: 1.5; color: #A0A0A0; }
+      .tag {
+        display: inline-block;
+        background: rgba(0, 255, 136, 0.1);
+        color: #00FF88;
+        padding: 5px 12px;
+        font-size: 14px;
+        font-weight: 700;
+        margin-top: 20px;
+      }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="header-block">
+            <h2>Automated Supply Chain<br>& <span class="highlight">Rollout Efficiency</span></h2>
+        </div>
+        <div class="columns-container">
+            <div class="col-card">
+                <div class="icon-box"><i class="fas fa-microchip"></i></div>
+                <h3>CI/CD Integrity</h3>
+                <p>Fully automated build pipeline via GitHub Actions for standalone compilation and MSI generation.</p>
+                <div class="tag">SECURE BUILD</div>
+            </div>
+            <div class="col-card accent">
+                <div class="icon-box"><i class="fas fa-file-signature"></i></div>
+                <h3>Cryptographic Trust</h3>
+                <p>Digital code signing with signtool bypasses SmartScreen for seamless enterprise-wide IT rollout.</p>
+                <div class="tag" style="background: rgba(255, 215, 0, 0.1); color: #FFD700;">SIGNED EXE/MSI</div>
+            </div>
+            <div class="col-card">
+                <div class="icon-box"><i class="fas fa-bolt"></i></div>
+                <h3>Rapid Onboarding</h3>
+                <p>Webhook-driven automated licensing reduces customer time-to-value to under 24 hours.</p>
+                <div class="tag">FAST TTV</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

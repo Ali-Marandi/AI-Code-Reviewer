@@ -1,0 +1,67 @@
+{
+  "project_info": {
+    "title": "Local Architecture: Solving Enterprise IP Security",
+    "created": 1786552967.246,
+    "last_updated": 1786553051.505,
+    "total_slides": 5
+  },
+  "slides": [
+    {
+      "id": "security_sol",
+      "state": "edited",
+      "pageNum": 1
+    },
+    {
+      "id": "hybrid_engine",
+      "state": "edited",
+      "pageNum": 2
+    },
+    {
+      "id": "ops_scaling",
+      "state": "edited",
+      "pageNum": 3
+    },
+    {
+      "id": "financial_growth",
+      "state": "edited",
+      "pageNum": 4
+    },
+    {
+      "id": "series_a_ask",
+      "state": "edited",
+      "pageNum": 5
+    }
+  ],
+  "outline": [
+    {
+      "id": "security_sol",
+      "title": "Local Architecture: Solving Enterprise IP Security",
+      "summary": "Focus on zero-cloud exposure, GDPR compliance, and local-first architecture.",
+      "image_plan": "Use a suitable image if needed"
+    },
+    {
+      "id": "hybrid_engine",
+      "title": "Hybrid AI Engine & Advanced Analytics",
+      "summary": "Details on SAST+LLM, dependency graphs, and bug prediction.",
+      "image_plan": "Use a suitable image if needed"
+    },
+    {
+      "id": "ops_scaling",
+      "title": "Automated Supply Chain & Rollout Efficiency",
+      "summary": "CI/CD automation, MSI packaging, and 24h onboarding.",
+      "image_plan": "Use a suitable image if needed"
+    },
+    {
+      "id": "financial_growth",
+      "title": "B2B SaaS Revenue & 5-Year Financial Outlook",
+      "summary": "Pricing model, ARR projections, and EBITDA path.",
+      "image_plan": "Use a suitable image if needed"
+    },
+    {
+      "id": "series_a_ask",
+      "title": "Series A Investment & Strategic Roadmap",
+      "summary": "The $10M funding ask, $15M pre-money valuation, and exit strategy.",
+      "image_plan": "Use a suitable image if needed"
+    }
+  ]
+}
