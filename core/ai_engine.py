@@ -1,3 +1,4 @@
+from contextlib import contextmanager
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from openai import OpenAI
@@ -66,10 +67,23 @@ class AIEngine:
         connection.row_factory = sqlite3.Row
         return connection
 
+    @contextmanager
+    def _connection(self):
+        """Provide a SQLite connection that commits or rolls back and always closes on Windows."""
+        connection = self._connect()
+        try:
+            yield connection
+            connection.commit()
+        except Exception:
+            connection.rollback()
+            raise
+        finally:
+            connection.close()
+
     def _init_cache_db(self) -> None:
         """Create local-only cache and history stores without storing source code."""
         try:
-            with self._connect() as conn:
+            with self._connection() as conn:
                 cursor = conn.cursor()
                 cursor.execute(
                     """
@@ -407,7 +421,7 @@ class AIEngine:
 
     def _load_cached_review(self, cache_key: str) -> Optional[Dict[str, Any]]:
         try:
-            with self._connect() as conn:
+            with self._connection() as conn:
                 row = conn.execute(
                     "SELECT review_result FROM review_cache WHERE code_hash = ?", (cache_key,)
                 ).fetchone()
@@ -417,7 +431,7 @@ class AIEngine:
 
     def _cache_review(self, cache_key: str, data: Dict[str, Any]) -> None:
         try:
-            with self._connect() as conn:
+            with self._connection() as conn:
                 conn.execute(
                     "INSERT OR REPLACE INTO review_cache (code_hash, review_result) VALUES (?, ?)",
                     (cache_key, json.dumps(data)),
@@ -435,7 +449,7 @@ class AIEngine:
                 1 for issue in issues if issue.get("severity") in {"High", "Critical"}
             )
             rule_pack_ref = self._rule_pack_signature()
-            with self._connect() as conn:
+            with self._connection() as conn:
                 conn.execute(
                     """
                     INSERT INTO scan_history (
@@ -480,7 +494,7 @@ class AIEngine:
         bounded_days = min(max(int(days), 1), 365)
         cutoff = (datetime.now(timezone.utc) - timedelta(days=bounded_days - 1)).date().isoformat()
         try:
-            with self._connect() as conn:
+            with self._connection() as conn:
                 rows = conn.execute(
                     """
                     SELECT substr(scanned_at, 1, 10) AS day,
@@ -503,7 +517,7 @@ class AIEngine:
         cutoff = (datetime.now(timezone.utc) - timedelta(days=bounded_days - 1)).date().isoformat()
         summary = {"scans": 0, "findings": 0, "high_or_critical": 0, "unique_fingerprints": 0}
         try:
-            with self._connect() as conn:
+            with self._connection() as conn:
                 scan_row = conn.execute(
                     """
                     SELECT COUNT(*) AS scans,
