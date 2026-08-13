@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "description": "Enterprise Policy Exemptions for AI-Code-Reviewer v1.2.0",
+  "exemptions": [
+    {
+      "rule_id": "ACR-LOCAL-API-KEY",
+      "file_pattern": "tests/",
+      "line_number": null,
+      "reason": "Exempt test fixture mock keys from production secret scanning."
+    }
+  ]
+}
