@@ -1,0 +1,7 @@
+Framework,Control Category,Findings Mapped,Auto-Mapping Accuracy,Compliance Posture,Audit Readiness
+SOC2,Logical Access (CC6.1),42,99.5,Action Required,High
+SOC2,Vulnerability Mgmt (CC7.1),28,98.2,Compliant,High
+GDPR,Security of Processing (Art 32),35,99.8,Action Required,High
+GDPR,Privacy by Design (Art 25),15,97.5,Compliant,Medium
+HIPAA,Access Control (§164.312),22,98.9,Action Required,High
+HIPAA,Integrity Controls (§164.312),18,99.1,Compliant,High
