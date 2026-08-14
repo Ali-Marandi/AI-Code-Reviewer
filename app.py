@@ -7,6 +7,8 @@ from PySide6.QtWidgets import QApplication
 from core.ai_engine import AIEngine
 from core.github_client import GitHubClient
 from core.i18n import SUPPORTED_LOCALES, install_translation, normalize_locale
+from core.license_manager import LicenseManager
+from core.telemetry import Telemetry
 from ui.main_window import MainWindow
 
 
@@ -19,7 +21,10 @@ def run_gui(token, locale="auto"):
     translator = install_translation(app, selected_locale)
     github_client = GitHubClient(token)
     ai_engine = AIEngine()
-    window = MainWindow(github_client, ai_engine)
+    license_mgr = LicenseManager()
+    telemetry = Telemetry()
+    
+    window = MainWindow(github_client, ai_engine, license_mgr, telemetry)
     window.selected_locale = selected_locale
     window.translation_active = translator is not None
     window.show()

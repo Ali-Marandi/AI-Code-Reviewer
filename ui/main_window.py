@@ -29,10 +29,12 @@ class WorkerThread(QThread):
             self.error.emit(str(e))
 
 class MainWindow(QMainWindow):
-    def __init__(self, github_client, ai_engine):
+    def __init__(self, github_client, ai_engine, license_mgr=None, telemetry=None):
         super().__init__()
         self.github = github_client
         self.ai = ai_engine
+        self.license = license_mgr
+        self.telemetry = telemetry
         self.selected_repo = None
         self.selected_pr = None
         self.last_review_issues = []
@@ -150,6 +152,12 @@ class MainWindow(QMainWindow):
         title = QLabel(self.tr("Enterprise Dashboard"))
         title.setObjectName("Title")
         layout.addWidget(title)
+
+        # License Banner
+        status = self.license.get_status() if self.license else "Unknown"
+        self.license_label = QLabel(f"License Status: {status}")
+        self.license_label.setStyleSheet("color: #00ff00; font-weight: bold; margin-bottom: 10px;")
+        layout.addWidget(self.license_label)
 
         subtitle = QLabel(self.tr("Overview of automated AI code reviews, security scans, and repository health."))
         subtitle.setObjectName("Subtitle")
@@ -339,6 +347,19 @@ class MainWindow(QMainWindow):
         self.token_input.setPlaceholderText("Enter your GitHub PAT...")
         layout.addWidget(self.token_input)
 
+        layout.addWidget(QLabel("Enterprise License Key:"))
+        self.license_input = QLineEdit()
+        layout.addWidget(self.license_input)
+
+        layout.addWidget(QLabel("Telemetry Integration:"))
+        self.telemetry_toggle = QPushButton("Enabled")
+        self.telemetry_toggle.setStyleSheet("background-color: #007acc; color: white;")
+        layout.addWidget(self.telemetry_toggle)
+
+        save_btn = QPushButton("Save Settings")
+        save_btn.clicked.connect(self.save_settings)
+        layout.addWidget(save_btn)
+
         layout.addWidget(QLabel("AI Model Engine:"))
         self.model_combo = QComboBox()
         self.model_combo.addItems(["gpt-4o", "gpt-4o-mini", "claude-3-5-sonnet"])
@@ -372,9 +393,16 @@ class MainWindow(QMainWindow):
         self.worker.error.connect(self.on_worker_error)
         self.worker.start()
 
-    def on_repos_loaded(self, repos):
+    def save_settings(self):
+        key = self.license_input.text()
+        if self.license:
+            self.license.validate_key(key)
+            self.license_label.setText(f"License Status: {self.license.get_status()}")
+        print("Settings Saved and License Validated.")
+
+    def load_repos(self):
         self.repo_list.clear()
-        self.btn_load_repos.setEnabled(True)
+        try:.btn_load_repos.setEnabled(True)
         if isinstance(repos, list):
             for repo in repos:
                 item = QListWidgetItem(repo['full_name'])
